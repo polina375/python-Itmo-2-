@@ -302,14 +302,6 @@ if __name__ == "__main__":
     plot_histogram(math_scores)
     plot_line(students, math_scores)
 
-    # Создаём DataFrame с оценками по трём предметам
-    scores_data = pd.DataFrame({
-        'math': [5, 4, 5, 3, 4],
-        'physics': [4, 4, 5, 3, 4],
-        'chemistry': [4, 5, 5, 3, 4]
-    })
-    # Вычисляем матрицу корреляции
-    corr_matrix = scores_data.corr().values  # .values преобразует в numpy-массив
 
 
 
