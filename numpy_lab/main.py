@@ -103,10 +103,7 @@ def elementwise_multiply(a: np.ndarray, b: np.ndarray) -> np.ndarray:
 
 def dot_product(a: np.ndarray, b: np.ndarray) -> float:
     """
-    Скалярное произведение.
-
-    Изучить:
-    https://numpy.org/doc/stable/reference/generated/numpy.dot.html
+    Скалярное произведение
 
     Args:
         a (numpy.ndarray): Первый вектор
@@ -126,9 +123,6 @@ def matrix_multiply(a: np.ndarray, b: np.ndarray) -> np.ndarray:
     """
     Умножение матриц.
 
-    Изучить:
-    https://numpy.org/doc/stable/reference/generated/numpy.matmul.html
-
     Args:
         a (numpy.ndarray): Первая матрица
         b (numpy.ndarray): Вторая матрица
@@ -143,9 +137,6 @@ def matrix_determinant(a: np.ndarray) -> float:
     """
     Определитель матрицы.
 
-    Изучить:
-    https://numpy.org/doc/stable/reference/generated/numpy.linalg.det.html
-
     Args:
         a (numpy.ndarray): Квадратная матрица
 
@@ -159,8 +150,6 @@ def matrix_inverse(a: np.ndarray) -> np.ndarray:
     """
     Обратная матрица.
 
-    Изучить:
-    https://numpy.org/doc/stable/reference/generated/numpy.linalg.inv.html
 
     Args:
         a (numpy.ndarray): Квадратная матрица
@@ -174,9 +163,6 @@ def matrix_inverse(a: np.ndarray) -> np.ndarray:
 def solve_linear_system(a: np.ndarray, b: np.ndarray) -> np.ndarray:
     """
     Решить систему Ax = b
-
-    Изучить:
-    https://numpy.org/doc/stable/reference/generated/numpy.linalg.solve.html
 
     Args:
         a (numpy.ndarray): Матрица коэффициентов A
@@ -208,21 +194,6 @@ def load_dataset(path: str = "data/students_scores.csv") -> np.ndarray:
 
 def statistical_analysis(data: np.ndarray) -> dict:
     """
-    Представьте, что данные — это результаты экзамена по математике.
-    Нужно оценить:
-    - средний балл
-    - медиану
-    - стандартное отклонение
-    - минимум
-    - максимум
-    - 25 и 75 перцентили
-
-    Изучить:
-    https://numpy.org/doc/stable/reference/generated/numpy.mean.html
-    https://numpy.org/doc/stable/reference/generated/numpy.median.html
-    https://numpy.org/doc/stable/reference/generated/numpy.std.html
-    https://numpy.org/doc/stable/reference/generated/numpy.percentile.html
-
     Args:
         data (numpy.ndarray): Одномерный массив данных
 
@@ -324,11 +295,21 @@ def plot_line(x: np.ndarray, y: np.ndarray) -> None:
 
 if __name__ == "__main__":
     # Пример данных
-    math_scores = np.array([78,85,92,70,88,95,60,73,84,90])
+    math_scores = np.array([5, 4, 5, 3, 5, 4, 2, 3, 5, 4])
     students = np.arange(1, len(math_scores)+1)
 
     # Построение и сохранение графиков
     plot_histogram(math_scores)
     plot_line(students, math_scores)
 
-    print("Графики в  'plots/'")
+    # Создаём DataFrame с оценками по трём предметам
+    scores_data = pd.DataFrame({
+        'math': [5, 4, 5, 3, 4],
+        'physics': [4, 4, 5, 3, 4],
+        'chemistry': [4, 5, 5, 3, 4]
+    })
+    # Вычисляем матрицу корреляции
+    corr_matrix = scores_data.corr().values  # .values преобразует в numpy-массив
+
+
+
